@@ -125,7 +125,13 @@ def a_star_search(grid, src, dest):
                     return
                 else:
                     # Calculate the new f, g, and h values
-                    g_new = cell_details[i][j].g + 1.0
+                    move_cost = grid[new_i][new_j]
+
+                    # Optional: add diagonal movement multiplier
+                    if dir[0] != 0 and dir[1] != 0:
+                        move_cost *= math.sqrt(2)
+
+                    g_new = cell_details[i][j].g + move_cost
                     h_new = calculate_h_value(new_i, new_j, dest)
                     f_new = g_new + h_new
 

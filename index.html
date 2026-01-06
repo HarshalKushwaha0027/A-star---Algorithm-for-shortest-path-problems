@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Pathfinding AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>A* PATHFINDER </h1>
+            <p class="subtitle">Autonomous Shortest Path Simulator</p>
+        </header>
+
+        <div class="stats-panel">
+            <div class="stat-box">
+                <span class="stat-label">GRID STATUS</span>
+                <span class="stat-value" id="statusText">Ready</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">NODES VISITED</span>
+                <span class="stat-value" id="nodesVisited">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">PATH LENGTH</span>
+                <span class="stat-value" id="pathLength">0</span>
+            </div>
+        </div>
+
+        <div class="controls-wrapper">
+            
+            <div class="control-group">
+                <label>Grid Size</label>
+                <select id="gridSize">
+                    <option value="10">10 × 10</option>
+                    <option value="20" selected>20 × 20</option>
+                    <option value="30">30 × 30</option>
+                    <option value="40">40 × 40</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Brush Mode</label>
+                <select id="weightMode">
+                    <option value="0">🧱 Wall (Block)</option>
+                    <option value="1">⬜ Normal Path (1)</option>
+                    <option value="2">🌿 Medium Cost (2)</option>
+                    <option value="5">⚠️ High Cost (5)</option>
+                    <option value="10">🔥 Extreme Cost (10)</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button id="setStart" class="btn tool-btn"><span class="icon">⛳</span> Start</button>
+                <button id="setEnd" class="btn tool-btn"><span class="icon">🎯</span> End</button>
+                <button id="drawObstacle" class="btn tool-btn"><span class="icon">✏️</span> Draw</button>
+            </div>
+
+            <div class="button-group">
+                <button id="randomGrid" class="btn secondary-btn">Randomize</button>
+                <button id="clearGrid" class="btn secondary-btn">Clear Map</button>
+                <button id="runAlgo" class="btn primary-btn glow-effect">🚀 RUN SIMULATION</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="gridCanvas" width="500" height="500"></canvas>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><span class="box start"></span>Start</div>
+            <div class="legend-item"><span class="box end"></span>End</div>
+            <div class="legend-item"><span class="box obstacle"></span>Wall</div>
+            <div class="legend-item"><span class="box visited"></span>Scanned</div>
+            <div class="legend-item"><span class="box path"></span>Optimal Path</div>
+            <div class="legend-item"><span class="box weight2"></span>Cost 2</div>
+            <div class="legend-item"><span class="box weight5"></span>Cost 5</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

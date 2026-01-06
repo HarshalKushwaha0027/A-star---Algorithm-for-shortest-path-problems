@@ -1,0 +1,220 @@
+/* ===== VARIABLES & RESET ===== */
+:root {
+    --bg-color: #0b0c10;
+    --panel-bg: #1f2833;
+    --neon-cyan: #66fcf1;
+    --neon-green: #45a29e;
+    --text-color: #c5c6c7;
+    --white: #ffffff;
+    --accent-glow: 0 0 10px rgba(102, 252, 241, 0.6);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Exo 2', sans-serif; /* Techy but readable */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ===== HEADER ===== */
+header {
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif; /* Sci-Fi Font */
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(102, 252, 241, 0.3);
+}
+
+
+.subtitle {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+/* ===== STATS PANEL ===== */
+.stats-panel {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(31, 40, 51, 0.5);
+    border: 1px solid #333;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(5px);
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* ===== CONTROLS ===== */
+.controls-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    background: var(--panel-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.control-group label {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    color: var(--neon-cyan);
+}
+
+select {
+    background: #0b0c10;
+    color: white;
+    border: 1px solid #45a29e;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Exo 2', sans-serif;
+    cursor: pointer;
+    outline: none;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Tool Buttons (Start, End, Draw) */
+.tool-btn {
+    background: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+}
+.tool-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--white);
+    color: var(--white);
+}
+
+/* Secondary Buttons (Clear, Random) */
+.secondary-btn {
+    background: #2c3e50;
+    color: white;
+}
+.secondary-btn:hover {
+    background: #34495e;
+    transform: translateY(-2px);
+}
+
+/* Primary Action Button (RUN) */
+.primary-btn {
+    background: var(--neon-cyan);
+    color: #0b0c10;
+    font-weight: 800;
+    padding: 12px 25px;
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+}
+
+.primary-btn:hover {
+    background: #fff;
+    box-shadow: 0 0 25px rgba(102, 252, 241, 0.8);
+    transform: scale(1.05);
+}
+
+/* ===== CANVAS ===== */
+.canvas-container {
+    position: relative;
+    padding: 5px;
+    background: linear-gradient(45deg, #45a29e, transparent, #45a29e);
+    border-radius: 4px;
+    display: inline-block;
+}
+
+canvas {
+    background-color: #e0e0e0;
+    display: block;
+    /* Removed border here because the container handles the gradient border */
+}
+
+/* ===== LEGEND ===== */
+.legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.box {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* Legend Colors */
+.box.start { background: green; box-shadow: 0 0 8px green; }
+.box.end { background: red; box-shadow: 0 0 8px red; }
+.box.obstacle { 
+    background: #000000; 
+    border: 1px solid #333; /* Adds a subtle border so it doesn't disappear into the background */
+}
+.box.visited { background: #64b5f6; }
+.box.path { background: yellow; box-shadow: 0 0 10px yellow; }
+.box.weight2 { background: #c8e6c9; }
+.box.weight5 { background: #ffe082; }

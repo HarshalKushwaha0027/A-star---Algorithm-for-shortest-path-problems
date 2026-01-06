@@ -202,7 +202,7 @@ document.getElementById("runAlgo").onclick = async () => {
 
     drawGrid(); // reset visualization
 
-    const response = await fetch("http://localhost:5001/run-pathfinding", {
+    const response = await fetch("/run-pathfinding", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

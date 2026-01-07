@@ -4,7 +4,7 @@ from A_star import a_star_search
 
 # Initialize Flask with explicit folder names
 app = Flask(__name__, static_folder="static", template_folder="templates")
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # 1. SERVE THE HTML PAGE
 @app.route("/")

@@ -2,7 +2,7 @@
 
 A full-stack pathfinding simulator that visualizes the **A* Search Algorithm** in real-time. Built with a Python (Flask) backend and a custom JavaScript frontend, featuring a responsive cyberpunk interface.
 
-![Demo of the Project](demo.mp4)
+![Demo of the Project](demo.gif)
 
 ## 🌟 Features
 * **Real-time Visualization:** Watch the algorithm scan nodes and find the shortest path.
